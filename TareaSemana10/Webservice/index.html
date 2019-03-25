@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conversor de unidades de cocina</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+	function calcular(){
+		$.post( "conversor.php", 
+				{ 
+					paramCantidad: $("#campoCantidad").val(), 
+					paramUnidadOrigen: $("#campoUnidadOrigen").val(), 
+					paramUnidadDestino: $("#campoUnidadDestino").val()
+				}
+		).done(function( data ) {
+			if(data == '1'){
+				alert("Ingrese una cantidad válida");
+			}else{
+				if(data == '2'){
+					alert("Seleccione una unidad de origen válida");
+				}else{
+					if(data == '3'){
+						alert("Seleccione una unidad de destino válida");
+					}else{
+						if(data == '4'){
+							alert("Ocurrió un error al consultar el web service. Intente más tarde!");
+						}else{
+							$( "#resultado" ).html( data );
+						}
+					}
+				}
+			}
+		})
+		.fail(function() {
+			alert( "error" );
+		})
+		.always(function() {
+			//alert( "finished" );
+			console.log("llamado ajax ejecutado");
+		});
+		
+	}
+</script>
+<style type="text/css">
+	body {
+		font-family: Arial;
+		font-size: 12;
+		color: blue;
+	}
+</style>
+<body>
+
+<table align="center" width="400px" cellpadding="4px">
+	
+	<tr >
+		<td colspan="2">
+			<h2>Conversor de unidades de cocina</h2>
+		</td>
+	</tr>
+	<tr >
+		<td align="right">
+			Cantidad
+		</td>
+		<td>
+			<input type="number" id="campoCantidad" name="campoCantidad" step="0.01" min="0"></input>
+		</td>
+	</tr>
+	<tr >
+		<td align="right">
+			Unidad de origen:
+		</td>
+		<td>
+			<select id="campoUnidadOrigen" name="campoUnidadOrigen">
+				<option value="">Seleccione una unidad de origen</option>
+				<option value="drop">drop</option>
+				<option value="dash">dash</option>
+				<option value="pinch">pinch</option>
+				<option value="milliliterPerCC">milliliterPerCC</option>
+				<option value="deciliter">deciliter</option>
+				<option value="coffeeSpoon">coffeeSpoon</option>
+				<option value="fluidDram">fluidDram</option>
+				<option value="teaspoonUS">teaspoonUS</option>
+				<option value="teaspoonUK">teaspoonUK</option>
+				<option value="tablespoonUS">tablespoonUS</option>
+				<option value="tablespoonUK">tablespoonUK</option>
+				<option value="fluidOunceUS">fluidOunceUS</option>
+				<option value="fluidOunceUK">fluidOunceUK</option>
+				<option value="cupUS">cupUS</option>
+				<option value="cubicInch">cubicInch</option>
+				<option value="gillUS">gillUS</option>
+				<option value="gillUK">gillUK</option>
+				<option value="pintUS">pintUS</option>
+				<option value="pintUK">pintUK</option>
+				<option value="quartUS">quartUS</option>
+				<option value="liter">liter</option>
+				<option value="gallonUS">gallonUS</option>
+				<option value="gallonUK">gallonUK</option>
+				<option value="TwoPointFiveCan">TwoPointFiveCan</option>
+				<option value="TenCan">TenCan</option>
+			</select>
+		</td>
+	</tr>
+	<tr >
+		<td align="right">
+			Unidad de destino:
+		</td>
+		<td>
+			<select id="campoUnidadDestino" name="campoUnidadDestino">
+				<option value="">Seleccione una unidad de destino</option>
+				<option value="drop">drop</option>
+				<option value="dash">dash</option>
+				<option value="pinch">pinch</option>
+				<option value="milliliterPerCC">milliliterPerCC</option>
+				<option value="deciliter">deciliter</option>
+				<option value="coffeeSpoon">coffeeSpoon</option>
+				<option value="fluidDram">fluidDram</option>
+				<option value="teaspoonUS">teaspoonUS</option>
+				<option value="teaspoonUK">teaspoonUK</option>
+				<option value="tablespoonUS">tablespoonUS</option>
+				<option value="tablespoonUK">tablespoonUK</option>
+				<option value="fluidOunceUS">fluidOunceUS</option>
+				<option value="fluidOunceUK">fluidOunceUK</option>
+				<option value="cupUS">cupUS</option>
+				<option value="cubicInch">cubicInch</option>
+				<option value="gillUS">gillUS</option>
+				<option value="gillUK">gillUK</option>
+				<option value="pintUS">pintUS</option>
+				<option value="pintUK">pintUK</option>
+				<option value="quartUS">quartUS</option>
+				<option value="liter">liter</option>
+				<option value="gallonUS">gallonUS</option>
+				<option value="gallonUK">gallonUK</option>
+				<option value="TwoPointFiveCan">TwoPointFiveCan</option>
+				<option value="TenCan">TenCan</option>
+			</select>
+		</td>
+	</tr>
+	<tr >
+		<td colspan="2" align="center">
+			<input type="button" onclick="calcular();" value="Calcular"></input>
+		</td>
+	</tr>
+	<tr >
+		<td colspan="2">
+			Resultado: <span id="resultado"></span>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

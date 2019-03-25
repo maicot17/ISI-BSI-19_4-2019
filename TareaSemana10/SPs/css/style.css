@@ -1,0 +1,66 @@
+body {
+	
+	font-family:Arial;
+	color: blue; 
+	font-size: 12 px;
+}
+
+table {
+	border: 1 px;
+} 
+h2 {
+	text-align: center;
+}
+.TextoDerecha {
+	text-align: left;
+	font-weight: bold;
+}
+.CerrarSession:a {
+	text-align: left;
+	font-weight: 10 px;
+	color: #CC0000;
+	text-decoration: none;
+}
+.CerrarSession:hover {
+	text-align: left;
+	font-weight: 10 px;
+	color: #00FF00; 
+	text-decoration: none;
+}
+.CerrarSession:visited {
+	text-align: left;
+	font-weight: 10 px;
+	color: #CC0000;
+	text-decoration: none;
+}
+#menu {
+    list-style:none;
+    margin:0;
+    padding:0;
+    width: 200px;
+}
+
+#menu li {
+    margin:2px;
+    padding:0;
+}
+
+#menu li a {
+    display:block;
+    width:200px;
+    padding:4px 0;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+    color:#FFFFFF;
+    background-color: #000000;
+}
+
+#menu li a:hover {
+    color:#99CC00;
+    background-color: #003366;
+}
+.mensaje {
+	color:#CC0000;
+	font-weight: bold;
+}
